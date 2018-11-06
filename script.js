@@ -5,6 +5,10 @@ const li = document.getElementsByTagName("li");
 const deleteButton = document.getElementsByTagName("i");
 var clearButton = document.getElementById("clear");
 
+function event(e) {
+    console.log(e);
+}
+
 function strikeThrough(e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("done");
@@ -70,3 +74,4 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
 createDeleteButtonIcon();
 deleteParentNodeOnClick();
+event();
