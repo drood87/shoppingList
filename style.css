@@ -8,6 +8,7 @@ body {
 ul {
 	list-style-type: none;
 	padding-left: 0;
+
 }
 
 header {
@@ -64,18 +65,30 @@ button:hover {
 	opacity: .7;
 }
 
-ul > li {
+ul li {
 	opacity: 1;
-	margin: 5px;
 	cursor: pointer;
+
 }
 
 .done {
 	text-decoration: line-through;
 }
 
+
 li {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.div {
+	display: flex;
+}
+
+.li-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 5px;
 }

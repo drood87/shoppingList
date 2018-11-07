@@ -5,10 +5,6 @@ const li = document.getElementsByTagName("li");
 const deleteButton = document.getElementsByTagName("i");
 var clearButton = document.getElementById("clear");
 
-function event(e) {
-    console.log(e);
-}
-
 function strikeThrough(e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("done");
@@ -18,8 +14,10 @@ function strikeThrough(e) {
 function createDeleteButtonIcon() {
     for (var ind = 0; ind < li.length; ind++) {
         var createDeleteButton = document.createElement("i");
+        var createDiv = document.getElementsByClassName("div");
+        console.log(createDiv);
         createDeleteButton.classList.add("fa", "fa-trash");
-        li[ind].appendChild(createDeleteButton);
+        createDiv[ind].appendChild(createDeleteButton);
     }
 }
 
@@ -27,7 +25,7 @@ function deleteNodeOnClick(e) {
     var trash = document.querySelectorAll("i");
     for (var ind = 0; ind < trash.length; ind++) {
         console.log(e);
-        this.parentNode.remove();
+        this.parentNode.parentNode.remove();
     }
 }
 
@@ -36,13 +34,22 @@ function inputLength() {
 }
 
 function createListElement() {
+    var divClassWrapper = document.createElement("div");
+    divClassWrapper.classList.add("li-wrapper");
+
     var li = document.createElement("li");
+    var createDiv = document.createElement("div");
+
     li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li);
+    divClassWrapper.appendChild(li);
+    divClassWrapper.appendChild(createDiv);
+    ul.appendChild(divClassWrapper);
+
     input.value = "";
+    createDiv.classList.add("div");
     var createDeleteButton = document.createElement("i");
     createDeleteButton.classList.add("fa", "fa-trash");
-    li.appendChild(createDeleteButton);
+    createDiv.appendChild(createDeleteButton);
     deleteParentNodeOnClick();
 }
 
@@ -74,4 +81,3 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
 createDeleteButtonIcon();
 deleteParentNodeOnClick();
-event();
